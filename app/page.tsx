@@ -6,7 +6,6 @@ import { FreeAuditPage } from "@/components/FreeAuditPage";
 import { HeroSection } from "@/components/HeroSection";
 import { Navigation } from "@/components/Navigation";
 import { ProcessSection } from "@/components/ProcessSection";
-import { ProjectsSection } from "@/components/ProjectsSection";
 import { RedesignWebsitePage } from "@/components/RedesignWebsitePage";
 import { ServicesSection } from "@/components/ServiceSection";
 
