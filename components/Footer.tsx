@@ -54,7 +54,7 @@ export function Footer() {
                 </div>
                 <div className="flex items-center gap-3">
                   <Mail className="h-5 w-5 text-white" />
-                  <span style={{ fontFamily: 'Montserrat, sans-serif' }}>hello@anveron.com</span>
+                  <span style={{ fontFamily: 'Montserrat, sans-serif' }}>anveron42@gmail.com</span>
                 </div>
               </div>
 

@@ -176,27 +176,6 @@ export function RedesignWebsitePage() {
           </div>
         </motion.div>
 
-        {/* Visual representation of transformation */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="grid md:grid-cols-2 gap-8 mb-12"
-        >
-          <div className="bg-gray-800/30 border border-gray-600/50 backdrop-blur-sm rounded-lg p-6 text-center">
-            <h3 className="text-lg font-semibold text-gray-400 mb-2">Before</h3>
-            <div className="bg-gray-700 h-32 rounded border-2 border-dashed border-gray-600 flex items-center justify-center">
-              <span className="text-gray-500 text-sm">Outdated Design</span>
-            </div>
-          </div>
-          <div className="bg-black/30 border border-white/10 backdrop-blur-lg rounded-lg p-6 text-center">
-            <h3 className="text-lg font-semibold text-white mb-2">After</h3>
-            <div className="bg-gradient-to-br from-gray-800 to-gray-900 h-32 rounded border border-white/20 flex items-center justify-center">
-              <span className="text-white text-sm">Modern, Engaging Design</span>
-            </div>
-          </div>
-        </motion.div>
-
         {/* Form Card */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

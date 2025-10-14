@@ -42,9 +42,7 @@ const services = [
         'Interactive Wireframes',
         'Usability Testing Reports',
         'UX Documentation and Guidelines'
-      ],
-      timeline: '5-7 business days',
-      price: 'Starting from $500'
+      ]
     }
   },
   {
@@ -72,9 +70,7 @@ const services = [
         'Component Library',
         'Interactive Prototypes',
         'Design System Documentation'
-      ],
-      timeline: '7-10 business days',
-      price: 'Starting from $750'
+      ]
     }
   },
   {
@@ -102,9 +98,7 @@ const services = [
         'Performance-Optimized Build',
         'Cross-Browser Compatibility',
         'Development Documentation'
-      ],
-      timeline: '1-2 weeks',
-      price: 'Starting from $1200'
+      ]
     }
   },
   {
@@ -132,9 +126,7 @@ const services = [
         'Authentication System',
         'Cloud Infrastructure Setup',
         'API Testing Suite'
-      ],
-      timeline: '1-2 weeks',
-      price: 'Starting from $1000'
+      ]
     }
   },
   {
@@ -162,14 +154,13 @@ const services = [
         'Regular Content Updates',
         'Backup and Recovery System',
         'Priority Technical Support'
-      ],
-      timeline: 'Ongoing monthly service',
-      price: 'Starting from $200/month'
+      ]
     }
   }
 ];
 
 export function ServicesSection() {
+  const [isOpen, setIsOpen] = useState(false)
   const [selectedService, setSelectedService] = useState<typeof services[0] | null>(null);
   return (
     <section id="services" className="py-16 bg-black">
@@ -243,7 +234,11 @@ export function ServicesSection() {
                     variant="outline"
                     className="w-full bg-black text-white border border-white/20 hover:bg-white hover:text-black hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] transition-all duration-300 group"
                     style={{ fontFamily: 'Montserrat, sans-serif' }}
-                    onClick={() => setSelectedService(service)}
+                    onClick={() => {
+                      setSelectedService(service)
+                      setIsOpen(true)
+                    }
+                    }
                   >
                     Learn More
                     <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
@@ -287,7 +282,7 @@ export function ServicesSection() {
         </motion.div>
 
         {/* Service Details Modal */}
-        {selectedService && (
+        {(selectedService && isOpen) && (
           <div
             className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4"
             onClick={() => setSelectedService(null)}
@@ -370,37 +365,6 @@ export function ServicesSection() {
                         </div>
                       ))}
                     </div>
-
-                    <div className="bg-gray-50 p-4 rounded-lg space-y-3">
-                      <div className="flex justify-between">
-                        <span
-                          className="font-medium text-gray-900"
-                          style={{ fontFamily: 'Montserrat, sans-serif' }}
-                        >
-                          Timeline:
-                        </span>
-                        <span
-                          className="text-gray-600"
-                          style={{ fontFamily: 'Montserrat, sans-serif' }}
-                        >
-                          {selectedService.details.timeline}
-                        </span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span
-                          className="font-medium text-gray-900"
-                          style={{ fontFamily: 'Montserrat, sans-serif' }}
-                        >
-                          Investment:
-                        </span>
-                        <span
-                          className="text-blue-600 font-semibold"
-                          style={{ fontFamily: 'Montserrat, sans-serif' }}
-                        >
-                          {selectedService.details.price}
-                        </span>
-                      </div>
-                    </div>
                   </div>
                 </div>
 
@@ -409,7 +373,11 @@ export function ServicesSection() {
                     size="lg"
                     className="bg-gradient-to-r from-blue-600 to-blue-800 text-white hover:from-blue-700 hover:to-blue-900"
                     style={{ fontFamily: 'Montserrat, sans-serif' }}
-                    onClick={() => document.getElementById('free-audit')?.scrollIntoView({ behavior: 'smooth' })}
+                    onClick={() => {
+                      document.getElementById('free-audit')?.scrollIntoView({ behavior: 'smooth' })
+                      setIsOpen(false)
+                    }
+                    }
                   >
                     Get Started with {selectedService.title}
                   </Button>

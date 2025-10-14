@@ -167,8 +167,8 @@ export function FreeAuditPage() {
               style={{ fontFamily: 'Montserrat, sans-serif' }}
             >
               If you have any questions, feel free to contact us at{' '}
-              <a href="mailto:support@anveron.com" className="text-blue-600 hover:underline">
-                support@anveron.com
+              <a href="mailto:anveron42@gmail.com" className="text-blue-600 hover:underline">
+                anveron42@gmail.com
               </a>
               {' '}or call us at{' '}
               <a href="tel:+917991004886" className="text-blue-600 hover:underline">
@@ -243,11 +243,11 @@ export function FreeAuditPage() {
                       Email
                     </p>
                     <a
-                      href="mailto:support@anveron.com"
+                      href="mailto:anveron42@gamil.com"
                       className="text-blue-600 hover:underline"
                       style={{ fontFamily: 'Montserrat, sans-serif' }}
                     >
-                      support@anveron.com
+                      anveron42@gmail.com
                     </a>
                   </div>
                 </div>

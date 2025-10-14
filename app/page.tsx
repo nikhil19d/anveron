@@ -18,7 +18,6 @@ export default function Home() {
         <HeroSection />
         <AboutSection />
         <ServicesSection />
-        <ProjectsSection />
         <ProcessSection />
         <CTASection />
         <DesignFromScratchPage />

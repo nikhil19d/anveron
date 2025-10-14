@@ -98,24 +98,6 @@ export function CTASection() {
             </motion.div>
           </motion.div>
 
-          {/* Trust indicators */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            viewport={{ once: true }}
-            className="flex justify-center max-w-4xl mx-auto"
-          >
-            <div className="text-center">
-              <div className="text-4xl font-bold text-white mb-2" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-                90.99%
-              </div>
-              <div className="text-blue-100" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-                Client Satisfaction
-              </div>
-            </div>
-          </motion.div>
-
           {/* Additional CTA text */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}

@@ -34,86 +34,62 @@ export function AboutSection() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Company mission */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="space-y-8"
-          >
-            <div className="bg-gradient-to-r from-gray-900 to-black p-8 rounded-xl text-white border border-gray-700">
-              <Users className="h-12 w-12 mb-4 text-white" />
-              <h3
-                className="text-xl font-bold mb-4"
-                style={{ fontFamily: 'Montserrat, sans-serif' }}
-              >
-                Our Mission
-              </h3>
-              <p
-                className="font-medium leading-relaxed text-gray-300"
-                style={{ fontFamily: 'Montserrat, sans-serif' }}
-              >
-                &quot;We collaborate with developers and designers to understand your perspective
-                and help you make your first website—fully coded, editable, and tailored to your needs.&quot;
-              </p>
-            </div>
+        {/* Company mission */}
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="space-y-8 grid md:grid-cols-2 gap-12 items-center"
+        >
+          <div className="bg-gradient-to-r from-gray-900 to-black p-8 my-auto rounded-xl text-white border border-gray-700">
+            <Users className="h-12 w-12 mb-4 text-white" />
+            <h3
+              className="text-xl font-bold mb-4"
+              style={{ fontFamily: 'Montserrat, sans-serif' }}
+            >
+              Our Mission
+            </h3>
+            <p
+              className="font-medium leading-relaxed text-gray-300"
+              style={{ fontFamily: 'Montserrat, sans-serif' }}
+            >
+              &quot;We collaborate with developers and designers to understand your perspective
+              and help you make your first website—fully coded, editable, and tailored to your needs.&quot;
+            </p>
+          </div>
 
-            <div className="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-xl border border-gray-700">
-              <h3
-                className="font-semibold text-white mb-4 text-lg"
-                style={{ fontFamily: 'Montserrat, sans-serif' }}
-              >
-                Why Choose Anveron?
-              </h3>
-              <ul className="space-y-3 text-gray-300" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-                <li className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-white rounded-full" />
-                  Affordable pricing for startups
-                </li>
-                <li className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-white rounded-full" />
-                  Professional, scalable solutions
-                </li>
-                <li className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-white rounded-full" />
-                  Fully editable and maintainable code
-                </li>
-                <li className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-white rounded-full" />
-                  Ongoing support and updates
-                </li>
-                <li className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-white rounded-full" />
-                  Expert team with proven track record
-                </li>
-              </ul>
-            </div>
-          </motion.div>
-
-          {/* Stats and features */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="space-y-8"
-          >
-            <div className="flex justify-center">
-              <div className="text-center p-8 border border-gray-600 rounded-xl hover:border-white transition-colors max-w-xs bg-gray-900">
-                <div className="text-4xl font-bold text-white mb-2" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-                  90.99%
-                </div>
-                <p className="text-gray-300" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-                  Client Satisfaction
-                </p>
-              </div>
-            </div>
-
-
-          </motion.div>
-        </div>
+          <div className="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-xl border border-gray-700">
+            <h3
+              className="font-semibold text-white mb-4 text-lg"
+              style={{ fontFamily: 'Montserrat, sans-serif' }}
+            >
+              Why Choose Anveron?
+            </h3>
+            <ul className="space-y-3 text-gray-300" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+              <li className="flex items-center gap-3">
+                <div className="w-2 h-2 bg-white rounded-full" />
+                Affordable pricing for startups
+              </li>
+              <li className="flex items-center gap-3">
+                <div className="w-2 h-2 bg-white rounded-full" />
+                Professional, scalable solutions
+              </li>
+              <li className="flex items-center gap-3">
+                <div className="w-2 h-2 bg-white rounded-full" />
+                Fully editable and maintainable code
+              </li>
+              <li className="flex items-center gap-3">
+                <div className="w-2 h-2 bg-white rounded-full" />
+                Ongoing support and updates
+              </li>
+              <li className="flex items-center gap-3">
+                <div className="w-2 h-2 bg-white rounded-full" />
+                Expert team with proven track record
+              </li>
+            </ul>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
