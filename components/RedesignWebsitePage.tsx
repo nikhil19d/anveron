@@ -8,7 +8,6 @@ import { Label } from './ui/label';
 import { Textarea } from './ui/textarea';
 import { RadioGroup, RadioGroupItem } from './ui/radio-group';
 import { Checkbox } from './ui/checkbox';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
 import { Progress } from './ui/progress';
 import { ArrowLeft, ArrowRight, Upload, CheckCircle, RefreshCw, Link } from 'lucide-react';
 

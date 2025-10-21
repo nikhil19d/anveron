@@ -85,7 +85,7 @@ export function AboutSection() {
               </li>
               <li className="flex items-center gap-3">
                 <div className="w-2 h-2 bg-white rounded-full" />
-                Expert team with proven track record
+                Expert team
               </li>
             </ul>
           </div>
