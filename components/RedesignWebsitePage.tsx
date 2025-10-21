@@ -20,9 +20,8 @@ interface RedesignFormData {
   designStyle: string;
   exampleFiles: File[];
   exampleUrls: string;
-  budget: string;
-  timeline: string;
   additionalNotes: string;
+  email: string
 }
 
 const currentIssues = [
@@ -66,12 +65,11 @@ export function RedesignWebsitePage() {
     designStyle: '',
     exampleFiles: [],
     exampleUrls: '',
-    budget: '',
-    timeline: '',
-    additionalNotes: ''
+    additionalNotes: '',
+    email: ''
   });
 
-  const totalSteps = 5;
+  const totalSteps = 4;
   const progress = (currentStep / totalSteps) * 100;
 
   const nextStep = () => {
@@ -134,7 +132,7 @@ export function RedesignWebsitePage() {
                 setFormData({
                   websiteUrl: '', currentIssues: [], desiredChanges: [], keepServices: '',
                   designStyle: '', exampleFiles: [], exampleUrls: '',
-                  budget: '', timeline: '', additionalNotes: ''
+                  email: '', additionalNotes: ''
                 });
               }}
               className="bg-black text-white border border-white/20 hover:bg-white hover:text-black transition-all duration-300"
@@ -197,7 +195,7 @@ export function RedesignWebsitePage() {
 
               <div className="space-y-4">
                 <div>
-                  <Label htmlFor="websiteUrl" className="text-white flex items-center gap-2">
+                  <Label htmlFor="websiteUrl" className="text-white mb-2 flex items-center gap-2">
                     <Link className="h-4 w-4" />
                     Enter your website URL
                   </Label>
@@ -211,7 +209,7 @@ export function RedesignWebsitePage() {
                 </div>
 
                 <div>
-                  <Label className="text-white">What are the current design issues?</Label>
+                  <Label className="text-white mb-4">What are the current design issues?</Label>
                   <div className="grid grid-cols-2 gap-4 mt-4">
                     {currentIssues.map((issue) => (
                       <div key={issue} className="flex items-center space-x-3">
@@ -242,7 +240,7 @@ export function RedesignWebsitePage() {
 
               <div className="space-y-4">
                 <div>
-                  <Label className="text-white">What do you want improved?</Label>
+                  <Label className="text-white mb-4">What do you want improved?</Label>
                   <div className="grid grid-cols-2 gap-4 mt-4">
                     {desiredChanges.map((change) => (
                       <div key={change} className="flex items-center space-x-3">
@@ -258,7 +256,7 @@ export function RedesignWebsitePage() {
                 </div>
 
                 <div>
-                  <Label className="text-white">Are you changing services/products or keeping them?</Label>
+                  <Label className="text-white mb-4">Are you changing services/products or keeping them?</Label>
                   <RadioGroup
                     value={formData.keepServices}
                     onValueChange={(value) => updateFormData('keepServices', value)}
@@ -295,7 +293,7 @@ export function RedesignWebsitePage() {
 
               <div className="space-y-4">
                 <div>
-                  <Label className="text-white">Preferred style?</Label>
+                  <Label className="text-white mb-4">Preferred style?</Label>
                   <RadioGroup
                     value={formData.designStyle}
                     onValueChange={(value) => updateFormData('designStyle', value)}
@@ -311,7 +309,7 @@ export function RedesignWebsitePage() {
                 </div>
 
                 <div>
-                  <Label className="text-white">Examples you like (upload files)</Label>
+                  <Label className="text-white mb-2">Examples you like (upload files)</Label>
                   <div className="border-2 border-dashed border-white/20 rounded-lg p-6 text-center hover:border-white/40 transition-colors">
                     <Upload className="h-8 w-8 text-gray-400 mx-auto mb-2" />
                     <p className="text-gray-400 text-sm">Upload design examples, screenshots, or inspiration images</p>
@@ -320,7 +318,7 @@ export function RedesignWebsitePage() {
                 </div>
 
                 <div>
-                  <Label htmlFor="exampleUrls" className="text-white">Or share website URLs you like</Label>
+                  <Label htmlFor="exampleUrls" className="text-white mb-2">Or share website URLs you like</Label>
                   <Textarea
                     id="exampleUrls"
                     value={formData.exampleUrls}
@@ -334,53 +332,8 @@ export function RedesignWebsitePage() {
             </motion.div>
           )}
 
-          {/* Step 4: Budget & Timeline */}
+          {/* Step 4: Additional Notes */}
           {currentStep === 4 && (
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              className="space-y-6"
-            >
-              <h2 className="text-2xl font-bold text-white mb-6" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-                Budget & Timeline
-              </h2>
-
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <Label className="text-white">Budget Range</Label>
-                  <Select value={formData.budget} onValueChange={(value) => updateFormData('budget', value)}>
-                    <SelectTrigger className="bg-black/50 border-white/20 text-white">
-                      <SelectValue placeholder="Select budget range" />
-                    </SelectTrigger>
-                    <SelectContent className="bg-black border-white/20">
-                      <SelectItem value="750-1500">$750 - $1,500</SelectItem>
-                      <SelectItem value="1500-3000">$1,500 - $3,000</SelectItem>
-                      <SelectItem value="3000-6000">$3,000 - $6,000</SelectItem>
-                      <SelectItem value="6000+">$6,000+</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <div>
-                  <Label className="text-white">Timeline</Label>
-                  <Select value={formData.timeline} onValueChange={(value) => updateFormData('timeline', value)}>
-                    <SelectTrigger className="bg-black/50 border-white/20 text-white">
-                      <SelectValue placeholder="Select timeline" />
-                    </SelectTrigger>
-                    <SelectContent className="bg-black border-white/20">
-                      <SelectItem value="1-2-weeks">1-2 weeks</SelectItem>
-                      <SelectItem value="2-4-weeks">2-4 weeks</SelectItem>
-                      <SelectItem value="1-2-months">1-2 months</SelectItem>
-                      <SelectItem value="flexible">Flexible</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-              </div>
-            </motion.div>
-          )}
-
-          {/* Step 5: Additional Notes */}
-          {currentStep === 5 && (
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -391,7 +344,7 @@ export function RedesignWebsitePage() {
               </h2>
 
               <div>
-                <Label htmlFor="additionalNotes" className="text-white">Tell us more about your vision</Label>
+                <Label htmlFor="additionalNotes" className="text-white mb-2">Tell us more about your vision</Label>
                 <Textarea
                   id="additionalNotes"
                   value={formData.additionalNotes}
@@ -401,6 +354,17 @@ export function RedesignWebsitePage() {
                   rows={6}
                 />
               </div>
+              <div>
+                <Label htmlFor="email" className="text-white mb-2">What&apos;s your brand name?</Label>
+                <Input
+                  id="email"
+                  value={formData.email}
+                  onChange={(e) => updateFormData('email', e.target.value)}
+                  className="placeholder:text-gray-400"
+                  placeholder="example@gmail.com"
+                />
+              </div>
+
             </motion.div>
           )}
 

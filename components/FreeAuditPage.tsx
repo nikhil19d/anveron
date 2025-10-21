@@ -149,7 +149,7 @@ export function FreeAuditPage() {
               <ul className="text-left space-y-2 text-gray-600" style={{ fontFamily: 'Montserrat, sans-serif' }}>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-green-500" />
-                  You&apos;ll receive a confirmation email with Zoom link
+                  You&apos;ll receive a confirmation email with Meet link
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-green-500" />

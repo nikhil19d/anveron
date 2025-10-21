@@ -21,9 +21,8 @@ interface FormData {
   targetAudience: string[];
   features: string[];
   customFeatures: string;
-  budget: string;
-  timeline: string;
   finalNotes: string;
+  email: string
 }
 
 const designStyles = [
@@ -59,12 +58,11 @@ export function DesignFromScratchPage() {
     targetAudience: [],
     features: [],
     customFeatures: '',
-    budget: '',
-    timeline: '',
-    finalNotes: ''
+    finalNotes: '',
+    email: ''
   });
 
-  const totalSteps = 5;
+  const totalSteps = 4;
   const progress = (currentStep / totalSteps) * 100;
 
   const nextStep = () => {
@@ -127,7 +125,7 @@ export function DesignFromScratchPage() {
                 setFormData({
                   brandName: '', hasLogo: false, brandColors: '', designStyle: '',
                   targetAudience: [], features: [], customFeatures: '',
-                  budget: '', timeline: '', finalNotes: ''
+                  email: '', finalNotes: ''
                 });
               }}
               className="bg-black text-white border border-white/20 hover:bg-white hover:text-black transition-all duration-300"
@@ -190,7 +188,7 @@ export function DesignFromScratchPage() {
 
               <div className="space-y-4">
                 <div>
-                  <Label htmlFor="brandName" className="text-white">What&apos;s your brand name?</Label>
+                  <Label htmlFor="brandName" className="text-white mb-2">What&apos;s your brand name?</Label>
                   <Input
                     id="brandName"
                     value={formData.brandName}
@@ -201,7 +199,7 @@ export function DesignFromScratchPage() {
                 </div>
 
                 <div>
-                  <Label className="text-white">Do you have a logo or colors already?</Label>
+                  <Label className="text-white mb-4">Do you have a logo or colors already?</Label>
                   <RadioGroup
                     value={formData.hasLogo ? 'yes' : 'no'}
                     onValueChange={(value) => updateFormData('hasLogo', value === 'yes')}
@@ -225,14 +223,14 @@ export function DesignFromScratchPage() {
                     className="space-y-4"
                   >
                     <div>
-                      <Label className="text-white">Upload your logo</Label>
+                      <Label className="text-white mb-2">Upload your logo</Label>
                       <div className="border-2 border-dashed border-white/20 rounded-lg p-6 text-center hover:border-white/40 transition-colors">
                         <Upload className="h-8 w-8 text-gray-400 mx-auto mb-2" />
                         <p className="text-gray-400 text-sm">Click to upload or drag and drop</p>
                       </div>
                     </div>
                     <div>
-                      <Label htmlFor="colors" className="text-white">Brand Colors (if any)</Label>
+                      <Label htmlFor="colors" className="text-white mb-2">Brand Colors (if any)</Label>
                       <Input
                         id="colors"
                         value={formData.brandColors}
@@ -260,7 +258,7 @@ export function DesignFromScratchPage() {
 
               <div className="space-y-4">
                 <div>
-                  <Label className="text-white">What style are you aiming for?</Label>
+                  <Label className="text-white mb-4">What style are you aiming for?</Label>
                   <RadioGroup
                     value={formData.designStyle}
                     onValueChange={(value) => updateFormData('designStyle', value)}
@@ -276,7 +274,7 @@ export function DesignFromScratchPage() {
                 </div>
 
                 <div>
-                  <Label className="text-white">What&apos;s your target audience?</Label>
+                  <Label className="text-white mb-4">What&apos;s your target audience?</Label>
                   <div className="grid grid-cols-2 gap-4 mt-2">
                     {audienceOptions.map((audience) => (
                       <div key={audience} className="flex items-center space-x-2">
@@ -307,7 +305,7 @@ export function DesignFromScratchPage() {
 
               <div className="space-y-4">
                 <div>
-                  <Label className="text-white">Select the features you need:</Label>
+                  <Label className="text-white mb-4">Select the features you need:</Label>
                   <div className="grid grid-cols-1 gap-4 mt-2">
                     {featureOptions.map((feature) => (
                       <div key={feature.value} className="flex items-center space-x-3">
@@ -323,7 +321,7 @@ export function DesignFromScratchPage() {
                 </div>
 
                 <div>
-                  <Label htmlFor="customFeatures" className="text-white">Other custom features needed</Label>
+                  <Label htmlFor="customFeatures" className="text-white mb-2">Other custom features needed</Label>
                   <Textarea
                     id="customFeatures"
                     value={formData.customFeatures}
@@ -337,53 +335,8 @@ export function DesignFromScratchPage() {
             </motion.div>
           )}
 
-          {/* Step 4: Budget & Timeline */}
+          {/* Step 4: Final Notes */}
           {currentStep === 4 && (
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              className="space-y-6"
-            >
-              <h2 className="text-2xl font-bold text-white mb-6" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-                Budget & Timeline
-              </h2>
-
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <Label className="text-white">Budget Range</Label>
-                  <Select value={formData.budget} onValueChange={(value) => updateFormData('budget', value)}>
-                    <SelectTrigger className="bg-black/50 border-white/20 text-white">
-                      <SelectValue placeholder="Select budget range" />
-                    </SelectTrigger>
-                    <SelectContent className="bg-black border-white/20">
-                      <SelectItem value="500-1000">$500 - $1,000</SelectItem>
-                      <SelectItem value="1000-2500">$1,000 - $2,500</SelectItem>
-                      <SelectItem value="2500-5000">$2,500 - $5,000</SelectItem>
-                      <SelectItem value="5000+">$5,000+</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <div>
-                  <Label className="text-white">Timeline</Label>
-                  <Select value={formData.timeline} onValueChange={(value) => updateFormData('timeline', value)}>
-                    <SelectTrigger className="bg-black/50 border-white/20 text-white">
-                      <SelectValue placeholder="Select timeline" />
-                    </SelectTrigger>
-                    <SelectContent className="bg-black border-white/20">
-                      <SelectItem value="1-2-weeks">1-2 weeks</SelectItem>
-                      <SelectItem value="2-4-weeks">2-4 weeks</SelectItem>
-                      <SelectItem value="1-2-months">1-2 months</SelectItem>
-                      <SelectItem value="flexible">Flexible</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-              </div>
-            </motion.div>
-          )}
-
-          {/* Step 5: Final Notes */}
-          {currentStep === 5 && (
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -394,7 +347,7 @@ export function DesignFromScratchPage() {
               </h2>
 
               <div>
-                <Label htmlFor="finalNotes" className="text-white">Tell us more about your dream design...</Label>
+                <Label htmlFor="finalNotes" className="text-white mb-2">Tell us more about your dream design...</Label>
                 <Textarea
                   id="finalNotes"
                   value={formData.finalNotes}
@@ -402,6 +355,16 @@ export function DesignFromScratchPage() {
                   className="placeholder:text-gray-400"
                   placeholder="Share your vision, inspirations, specific requirements, or any additional details that would help us create your perfect design..."
                   rows={6}
+                />
+              </div>
+              <div>
+                <Label htmlFor="email" className="text-white mb-2">What&apos;s your brand name?</Label>
+                <Input
+                  id="email"
+                  value={formData.email}
+                  onChange={(e) => updateFormData('email', e.target.value)}
+                  className="placeholder:text-gray-400"
+                  placeholder="example@gmail.com"
                 />
               </div>
             </motion.div>

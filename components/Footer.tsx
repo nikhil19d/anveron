@@ -117,7 +117,7 @@ export function Footer() {
               <ul className="space-y-3 text-gray-300">
                 {[
                   { name: 'About', href: '#home' },
-                  { name: 'Our Projects', href: '#projects' },
+                  { name: 'Our Projects (In Process)', href: '#projects' },
                   { name: 'Process', href: '#process' },
                   { name: 'Contact', href: '#contact' },
                   { name: 'Get Free Audit', href: '#audit' }
