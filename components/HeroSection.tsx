@@ -110,7 +110,7 @@ export function HeroSection() {
                 {/* Pencil Body */}
                 <div className="relative w-8 h-64 mx-auto">
                   {/* Main pencil shaft */}
-                  <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-800 to-black rounded-lg shadow-2xl" />
+                  <div className="absolute inset-0 bg-linear-to-b from-black via-gray-800 to-black rounded-lg shadow-2xl" />
 
                   {/* White highlights */}
                   <div className="absolute left-1 top-4 bottom-4 w-1 bg-white opacity-60 rounded-full" />
@@ -126,7 +126,7 @@ export function HeroSection() {
                   <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-10 h-4 bg-gray-700 rounded-lg shadow-lg" />
 
                   {/* Metal band */}
-                  <div className="absolute top-2 left-1/2 transform -translate-x-1/2 w-10 h-2 bg-gradient-to-r from-gray-400 to-gray-600 rounded-sm" />
+                  <div className="absolute top-2 left-1/2 transform -translate-x-1/2 w-10 h-2 bg-linear-to-r from-gray-400 to-gray-600 rounded-sm" />
                 </div>
 
                 {/* Pencil tip glow effect */}
@@ -165,7 +165,7 @@ export function HeroSection() {
               </motion.div>
 
               {/* Subtle background glow */}
-              <div className="absolute inset-0 bg-gradient-to-r from-gray-900/20 to-gray-700/20 blur-3xl" />
+              <div className="absolute inset-0 bg-linear-to-r from-gray-900/20 to-gray-700/20 blur-3xl" />
             </div>
           </motion.div>
         </div>

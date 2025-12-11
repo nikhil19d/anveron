@@ -44,11 +44,11 @@ export function Navigation() {
               style={{ fontFamily: "Montserrat, sans-serif" }}
               onClick={() =>
                 document
-                  .getElementById("free-audit")
+                  .getElementById("audit")
                   ?.scrollIntoView({ behavior: "smooth" })
               }
             >
-              Get Free Audit
+              Book Slot
             </Button>
           </div>
 
@@ -92,11 +92,11 @@ export function Navigation() {
                   }}
                   onClick={() =>
                     document
-                      .getElementById("free-audit")
+                      .getElementById("audit")
                       ?.scrollIntoView({ behavior: "smooth" })
                   }
                 >
-                  Get Free Audit
+                  Book Slot
                 </Button>
               </div>
             </div>

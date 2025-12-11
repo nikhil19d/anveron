@@ -90,9 +90,9 @@ export function CTASection() {
                 size="lg"
                 className="liquid-glass-cta text-white text-lg px-8 py-4 h-auto group"
                 style={{ fontFamily: 'Montserrat, sans-serif' }}
-                onClick={() => document.getElementById('free-audit')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => document.getElementById('audit')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                Get Free Audit Now
+                Book Slot Now
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </motion.div>
@@ -104,14 +104,6 @@ export function CTASection() {
             viewport={{ once: true }}
             className="flex justify-center max-w-4xl mx-auto"
           >
-            <div className="text-center">
-              <div className="text-4xl font-bold text-white mb-2" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-                15 Free Days
-              </div>
-              <div className="text-blue-100" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-                Design + Dev
-              </div>
-            </div>
           </motion.div>
 
           {/* Additional CTA text */}

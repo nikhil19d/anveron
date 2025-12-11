@@ -120,7 +120,7 @@ export function Footer() {
                   { name: 'Our Projects (In Process)', href: '#projects' },
                   { name: 'Process', href: '#process' },
                   { name: 'Contact', href: '#contact' },
-                  { name: 'Get Free Audit', href: '#audit' }
+                  { name: 'Book Slot', href: '#audit' }
                 ].map((item) => (
                   <li key={item.name}>
                     <a

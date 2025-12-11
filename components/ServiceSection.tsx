@@ -134,7 +134,6 @@ const services = [
     title: 'Maintenance & Support',
     description: 'Ongoing support to keep your website running smoothly',
     features: [
-      '24/7 Technical Support',
       'Regular Updates',
       'Security Monitoring',
       'Performance Tracking'
@@ -200,7 +199,7 @@ export function ServicesSection() {
             >
               <Card className="h-full hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] transition-all duration-300 border border-white/10 bg-black/30 backdrop-blur-lg hover:bg-white/5">
                 <CardHeader className="pb-4">
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-r from-gray-700 to-gray-900 border border-white/20 flex items-center justify-center mb-4">
+                  <div className="w-12 h-12 rounded-lg bg-linear-to-r from-gray-700 to-gray-900 border border-white/20 flex items-center justify-center mb-4">
                     <service.icon className="h-6 w-6 text-white" />
                   </div>
                   <CardTitle
@@ -220,7 +219,7 @@ export function ServicesSection() {
                   <ul className="space-y-3 mb-6">
                     {service.features.map((feature) => (
                       <li key={feature} className="flex items-center gap-3">
-                        <Check className="h-4 w-4 text-white flex-shrink-0" />
+                        <Check className="h-4 w-4 text-white shrink-0" />
                         <span
                           className="text-sm text-gray-300"
                           style={{ fontFamily: 'Montserrat, sans-serif' }}
@@ -267,16 +266,16 @@ export function ServicesSection() {
             className="text-lg mb-8 text-gray-300"
             style={{ fontFamily: 'Montserrat, sans-serif' }}
           >
-            Get a free audit of your current website and discover opportunities for improvement
+            Get a Slot of your current website and discover opportunities for improvement
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               size="lg"
               className="bg-black text-white border border-white/20 hover:bg-white hover:text-black hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] transition-all duration-300"
               style={{ fontFamily: 'Montserrat, sans-serif' }}
-              onClick={() => document.getElementById('free-audit')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => document.getElementById('audit')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              Get Free Audit
+              Get Slot
             </Button>
           </div>
         </motion.div>
@@ -294,7 +293,7 @@ export function ServicesSection() {
               <div className="p-8">
                 <div className="flex justify-between items-start mb-6">
                   <div className="flex items-center gap-4">
-                    <div className={`w-12 h-12 rounded-lg bg-gradient-to-r ${selectedService.color} flex items-center justify-center`}>
+                    <div className={`w-12 h-12 rounded-lg bg-linear-to-r ${selectedService.color} flex items-center justify-center`}>
                       <selectedService.icon className="h-6 w-6 text-white" />
                     </div>
                     <div>
@@ -331,7 +330,7 @@ export function ServicesSection() {
                     <div className="space-y-3">
                       {selectedService.details.process.map((step, index) => (
                         <div key={index} className="flex gap-3">
-                          <div className="flex-shrink-0 w-6 h-6 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-sm font-medium">
+                          <div className="shrink-0 w-6 h-6 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-sm font-medium">
                             {index + 1}
                           </div>
                           <p
@@ -355,7 +354,7 @@ export function ServicesSection() {
                     <div className="space-y-3 mb-6">
                       {selectedService.details.deliverables.map((item, index) => (
                         <div key={index} className="flex items-center gap-3">
-                          <Check className="h-4 w-4 text-green-500 flex-shrink-0" />
+                          <Check className="h-4 w-4 text-green-500 shrink-0" />
                           <p
                             className="text-gray-600 text-sm"
                             style={{ fontFamily: 'Montserrat, sans-serif' }}
@@ -371,7 +370,7 @@ export function ServicesSection() {
                 <div className="mt-8 text-center">
                   <Button
                     size="lg"
-                    className="bg-gradient-to-r from-blue-600 to-blue-800 text-white hover:from-blue-700 hover:to-blue-900"
+                    className="-bg-linear-to-r from-blue-600 to-blue-800 text-white hover:from-blue-700 hover:to-blue-900"
                     style={{ fontFamily: 'Montserrat, sans-serif' }}
                     onClick={() => {
                       document.getElementById('free-audit')?.scrollIntoView({ behavior: 'smooth' })

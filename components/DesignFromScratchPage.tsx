@@ -75,10 +75,13 @@ export function DesignFromScratchPage() {
       setCurrentStep(currentStep - 1);
     }
   };
-
-  const handleSubmit = () => {
+  const action = 'build'
+  const handleSubmit = async () => {
     setIsSubmitted(true);
-    console.log('Form Data:', formData);
+    await fetch(`/api/${action}`, {
+      method: "POST",
+      body: JSON.stringify(formData)
+    })
   };
 
   const updateFormData = (field: keyof FormData, value: string | number | boolean | object | File) => {
@@ -357,7 +360,7 @@ export function DesignFromScratchPage() {
                 />
               </div>
               <div>
-                <Label htmlFor="email" className="text-white mb-2">What&apos;s your brand name?</Label>
+                <Label htmlFor="email" className="text-white mb-2">Email</Label>
                 <Input
                   id="email"
                   value={formData.email}

@@ -9,7 +9,6 @@ import { Textarea } from './ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 import { Checkbox } from './ui/checkbox';
-import { Badge } from './ui/badge';
 import { Phone, Mail, Clock, CheckCircle, Calendar, User, Globe, MessageSquare } from 'lucide-react';
 import Image from 'next/image';
 
@@ -51,20 +50,19 @@ export function FreeAuditPage() {
 
     while (count < 7) {
       currentDate.setDate(currentDate.getDate() + 1);
-      const dayOfWeek = currentDate.getDay();
-
+      // const dayOfWeek = currentDate.getDay();
       // Skip weekends (0 = Sunday, 6 = Saturday)
-      if (dayOfWeek !== 0 && dayOfWeek !== 6) {
-        dates.push({
-          value: currentDate.toISOString().split('T')[0],
-          label: currentDate.toLocaleDateString('en-US', {
-            weekday: 'long',
-            month: 'short',
-            day: 'numeric'
-          })
-        });
-        count++;
-      }
+      // if (dayOfWeek !== 0 && dayOfWeek !== 6) {
+      dates.push({
+        value: currentDate.toISOString().split('T')[0],
+        label: currentDate.toLocaleDateString('en-US', {
+          weekday: 'long',
+          month: 'short',
+          day: 'numeric'
+        })
+      });
+      count++;
+      // }
     }
 
     return dates;
@@ -76,6 +74,7 @@ export function FreeAuditPage() {
     '09:00 AM', '10:00 AM', '11:00 AM', '12:00 PM',
     '02:00 PM', '03:00 PM', '04:00 PM', '05:00 PM'
   ];
+  const action = 'audit'
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -83,7 +82,10 @@ export function FreeAuditPage() {
 
     // Simulate form submission
     await new Promise(resolve => setTimeout(resolve, 2000));
-
+    await fetch(`/api/${action}`, {
+      method: "POST",
+      body: JSON.stringify(formData)
+    })
     setIsLoading(false);
     setIsSubmitted(true);
   };
@@ -94,7 +96,7 @@ export function FreeAuditPage() {
 
   if (isSubmitted) {
     return (
-      <section id="free-audit" className="py-16 bg-gradient-to-br from-blue-50 to-white min-h-screen flex items-center">
+      <section id="audit" className="py-16 bg-linear-to-br from-blue-50 to-white min-h-screen flex items-center">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -114,7 +116,7 @@ export function FreeAuditPage() {
               }}
               className="mb-8"
             >
-              <Image src='logo.jpeg' alt="Loading" />
+              <Image src='/logo.jpeg' width={10} height={10} alt="Loading" />
             </motion.div>
 
             <div className="flex items-center justify-center mb-6">
@@ -132,7 +134,7 @@ export function FreeAuditPage() {
               className="text-lg text-gray-600 mb-8"
               style={{ fontFamily: 'Montserrat, sans-serif' }}
             >
-              We&apos;ve scheduled your free UX audit call for{' '}
+              We&apos;ve scheduled your Slot for UX audit{' '}
               <span className="font-semibold text-blue-600">
                 {availableDates.find(d => d.value === formData.preferredDate)?.label} at {formData.preferredTime}
               </span>
@@ -182,7 +184,7 @@ export function FreeAuditPage() {
   }
 
   return (
-    <section id="free-audit" className="py-16 bg-gradient-to-br from-blue-50 to-white min-h-screen">
+    <section id="audit" className="py-16 bg-linear-to-br from-blue-50 to-white min-h-screen">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -192,9 +194,6 @@ export function FreeAuditPage() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <Badge className="mb-4 bg-blue-100 text-blue-800 hover:bg-blue-100">
-            Free UX Audit
-          </Badge>
           <h1
             className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
             style={{ fontFamily: 'Montserrat, sans-serif' }}
@@ -312,7 +311,7 @@ export function FreeAuditPage() {
             <Card>
               <CardHeader>
                 <CardTitle style={{ fontFamily: 'Montserrat, sans-serif' }}>
-                  Schedule Your Free UX Audit
+                  Schedule Your Slot for UX Audit
                 </CardTitle>
                 <CardDescription style={{ fontFamily: 'Montserrat, sans-serif' }}>
                   Tell us about your project and we&apos;ll provide valuable insights to improve your user experience
@@ -515,7 +514,7 @@ export function FreeAuditPage() {
                   <Button
                     type="submit"
                     size="lg"
-                    className="w-full bg-gradient-to-r from-blue-600 to-blue-800 text-white hover:from-blue-700 hover:to-blue-900"
+                    className="w-full bg-linear-to-r from-blue-600 to-blue-800 text-white hover:from-blue-700 hover:to-blue-900"
                     disabled={isLoading}
                     style={{ fontFamily: 'Montserrat, sans-serif' }}
                   >
@@ -525,10 +524,10 @@ export function FreeAuditPage() {
                         transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
                         className="mr-2"
                       >
-                        <Image src='logo.jpeg' alt="Loading" />
+                        <Image src='/logo.jpeg' alt="Loading" width={10} height={10} />
                       </motion.div>
                     ) : null}
-                    {isLoading ? 'Scheduling Your Call...' : 'Schedule My Free Audit Call'}
+                    {isLoading ? 'Scheduling Your Call...' : 'Schedule My Slot'}
                   </Button>
                 </form>
               </CardContent>
