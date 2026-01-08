@@ -42,7 +42,7 @@ export function AboutSection() {
           viewport={{ once: true }}
           className="space-y-8 grid md:grid-cols-2 gap-12 items-center"
         >
-          <div className="bg-linear-to-r from-gray-900 to-black p-8 my-auto rounded-xl text-white border border-gray-700">
+          <div className="bg-gradient-to-r from-gray-900 to-black p-8 my-auto rounded-xl text-white border border-gray-700">
             <Users className="h-12 w-12 mb-4 text-white" />
             <h3
               className="text-xl font-bold mb-4"
@@ -59,7 +59,7 @@ export function AboutSection() {
             </p>
           </div>
 
-          <div className="bg-linear-to-br from-gray-900 to-gray-800 p-8 rounded-xl border border-gray-700">
+          <div className="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-xl border border-gray-700">
             <h3
               className="font-semibold text-white mb-4 text-lg"
               style={{ fontFamily: 'Montserrat, sans-serif' }}

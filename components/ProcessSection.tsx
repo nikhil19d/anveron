@@ -105,7 +105,7 @@ export function ProcessSection() {
                 {/* Left: Step Number & Icon */}
                 <div className="flex flex-col items-center relative">
                   {/* Step Circle */}
-                  <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center shrink-0 relative z-10">
+                  <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center flex-shrink-0 relative z-10">
                     <step.icon className="h-7 w-7 text-black" />
                   </div>
 
@@ -146,7 +146,7 @@ export function ProcessSection() {
                         key={detailIndex}
                         className="flex items-start gap-3"
                       >
-                        <div className="w-1 h-1 bg-gray-600 rounded-full mt-2 shrink-0" />
+                        <div className="w-1 h-1 bg-gray-600 rounded-full mt-2 flex-shrink-0" />
                         <span
                           className="text-sm text-gray-500"
                           style={{ fontFamily: 'Montserrat, sans-serif' }}

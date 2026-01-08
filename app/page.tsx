@@ -2,12 +2,12 @@ import { AboutSection } from "@/components/AboutSection";
 import { CTASection } from "@/components/CTASection";
 import { DesignFromScratchPage } from "@/components/DesignFromScratchPage";
 import { Footer } from "@/components/Footer";
-import { FreeAuditPage } from "@/components/FreeAuditPage";
+import { AuditPage } from "@/components/FreeAuditPage";
 import { HeroSection } from "@/components/HeroSection";
 import { Navigation } from "@/components/Navigation";
-import { ProcessSection } from "@/components/ProcessSection";
 import { RedesignWebsitePage } from "@/components/RedesignWebsitePage";
 import { ServicesSection } from "@/components/ServiceSection";
+import { ProcessSection } from "@/components/ProcessSection";
 
 export default function Home() {
   return (
@@ -21,7 +21,7 @@ export default function Home() {
         <CTASection />
         <DesignFromScratchPage />
         <RedesignWebsitePage />
-        <FreeAuditPage />
+        <AuditPage />
       </main>
       <Footer />
     </div>

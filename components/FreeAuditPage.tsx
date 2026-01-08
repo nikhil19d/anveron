@@ -25,7 +25,7 @@ interface FormData {
   agreement: boolean;
 }
 
-export function FreeAuditPage() {
+export function AuditPage() {
   const [formData, setFormData] = useState<FormData>({
     fullName: '',
     email: '',
@@ -96,7 +96,7 @@ export function FreeAuditPage() {
 
   if (isSubmitted) {
     return (
-      <section id="audit" className="py-16 bg-linear-to-br from-blue-50 to-white min-h-screen flex items-center">
+      <section id="audit" className="py-16 bg-gradient-to-br from-blue-50 to-white min-h-screen flex items-center">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -184,7 +184,7 @@ export function FreeAuditPage() {
   }
 
   return (
-    <section id="audit" className="py-16 bg-linear-to-br from-blue-50 to-white min-h-screen">
+    <section id="audit" className="py-16 bg-gradient-to-br from-blue-50 to-white min-h-screen">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -514,7 +514,7 @@ export function FreeAuditPage() {
                   <Button
                     type="submit"
                     size="lg"
-                    className="w-full bg-linear-to-r from-blue-600 to-blue-800 text-white hover:from-blue-700 hover:to-blue-900"
+                    className="w-full bg-gradient-to-r from-blue-600 to-blue-800 text-white hover:from-blue-700 hover:to-blue-900"
                     disabled={isLoading}
                     style={{ fontFamily: 'Montserrat, sans-serif' }}
                   >
