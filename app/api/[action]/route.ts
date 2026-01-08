@@ -39,42 +39,42 @@ export const POST = async (req: NextRequest, { params }: { params: Promise<{ act
           createRequest: { requestId: `meet-${Date.now()}` },
         },
       };
-
-      const response = await calendar.events.insert({
-        calendarId: 'primary',
-        requestBody: event,
-        conferenceDataVersion: 1
-      })
-      const meetLink = response.data.hangoutLink;
-      // ✅ 2. Send email with Meet link
-      const oAuth2Client = new google.auth.OAuth2(
-        process.env.GOOGLE_CLIENT_ID,
-        process.env.GOOGLE_CLIENT_SECRET,
-        "http://localhost:3000/api/auth/callback/google"
-      );
-      oAuth2Client.setCredentials({ refresh_token: process.env.GOOGLE_REFRESH_TOKEN });
-      const accessTokenResponse = await oAuth2Client.getAccessToken();
-      const accessToken = accessTokenResponse.token
-      if (!accessToken) throw new Error("Failed to get access token");
-      const transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-          type: 'OAuth2',
-          user: process.env.GMAIL_USER,
-          clientId: process.env.GOOGLE_CLIENT_ID,
-          clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-          refreshToken: process.env.GOOGLE_REFRESH_TOKEN,
-          accessToken
-        },
-        tls: {
-          rejectUnauthorized: false
-        }
-      })
-      await transporter.sendMail({
-        from: `Anveron <${process.env.GMAIL_USER}>`,
-        to: form.email,
-        subject: 'Your Google Meet Link',
-        html: `
+      try {
+        const response = await calendar.events.insert({
+          calendarId: 'primary',
+          requestBody: event,
+          conferenceDataVersion: 1
+        })
+        const meetLink = response.data.hangoutLink;
+        // ✅ 2. Send email with Meet link
+        const oAuth2Client = new google.auth.OAuth2(
+          process.env.GOOGLE_CLIENT_ID,
+          process.env.GOOGLE_CLIENT_SECRET,
+          process.env.GOOGLE_REDIRECT_URI
+        );
+        oAuth2Client.setCredentials({ refresh_token: process.env.GOOGLE_REFRESH_TOKEN });
+        const accessTokenResponse = await oAuth2Client.getAccessToken();
+        const accessToken = accessTokenResponse.token
+        if (!accessToken) throw new Error("Failed to get access token");
+        const transporter = nodemailer.createTransport({
+          service: 'gmail',
+          auth: {
+            type: 'OAuth2',
+            user: process.env.GMAIL_USER,
+            clientId: process.env.GOOGLE_CLIENT_ID,
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+            refreshToken: process.env.GOOGLE_REFRESH_TOKEN,
+            accessToken
+          },
+          tls: {
+            rejectUnauthorized: false
+          }
+        })
+        await transporter.sendMail({
+          from: `Anveron <${process.env.GMAIL_USER}>`,
+          to: form.email,
+          subject: 'Your Google Meet Link',
+          html: `
       <div style="font-family: Arial, sans-serif; color: #333; line-height: 1.6;">
         <h2 style="color:#0077ff;">Thanks ${form.fullName}! We’ve received your request 🚀</h2>
         <p>Hi ${form.fullName},</p>
@@ -109,10 +109,15 @@ export const POST = async (req: NextRequest, { params }: { params: Promise<{ act
         </p>
       </div>
       `
-      });
-      return NextResponse.json({
-        message: 'success'
-      })
+        });
+        return NextResponse.json({
+          message: 'success'
+        })
+      } catch (e) {
+        return NextResponse.json({
+          message : e
+        })
+      }
     } else if (action == 'build') {
       const form = await req.json()
       await db.collection('build').insertOne(form)
